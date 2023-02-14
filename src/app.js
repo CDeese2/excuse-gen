@@ -5,9 +5,9 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-function randomPicker() {
+function excuseGenerator() {
   let who = ["The dog", "My grandma", "His turtle", "My bird", "Your uncle"];
-  let action = ["ate", "peed", "crushed", "broke", "smashed"];
+  let action = ["ate", "peed on", "crushed", "broke", "smashed", "julienned"];
   let what = [
     "my homework",
     "the keys",
@@ -24,16 +24,16 @@ function randomPicker() {
     "after the game"
   ];
 
-  let quien = who[Math.round(Math.random() * (who.length - 1))];
-  let accion = action[Math.round(Math.random() * (action.length - 1))];
-  let que = what[Math.round(Math.random() * (what.length - 1))];
-  let cuando = when[Math.round(Math.random() * (when.length - 1))];
+  let quien = Math.floor(Math.random() * who.length);
+  let accion = Math.floor(Math.random() * action.length);
+  let que = Math.floor(Math.random() * what.length);
+  let cuando = Math.floor(Math.random() * when.length);
   let result;
-  return result;
+  return (
+    who[quien] + " " + action[accion] + " " + what[que] + " " + when[cuando]
+  );
 }
-
 window.onload = function() {
   //write your code here
-  let final_result = quien + " " + accion + " " + que + " " + cuando;
-  console.log("Hello Rigo from the console!");
+  document.querySelector("#the-excuse").innerHTML = excuseGenerator();
 };
